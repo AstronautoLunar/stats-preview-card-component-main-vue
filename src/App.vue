@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-
-
+    <CardMain/>
   </div>
 </template>
 
 <script>
+import CardMain from './components/CardMain.vue';
 
 export default {
   name: 'App',
   components: {
+    CardMain,
   }
 }
 </script>
@@ -18,7 +19,7 @@ export default {
   :root {
     /* Primary */
     --very-dark-blue: hsl(233, 47%, 7%);
-    --dar-desaturated-blue: hsl(244, 38%, 16%);
+    --dark-desaturated-blue: hsl(244, 38%, 16%);
     --soft-violet: hsl(277, 64%, 61%);
 
     /* Neutral */
