@@ -1,10 +1,23 @@
 <template>
     <div id="CardMain">
-        <article id="article" role="article">
-            <h1 id="title-card-main">
-                Get <span id="strong-word">insights</span> that help your business grow.
-            </h1>
-        </article>
+        <section id="section" role="section">
+            <article id="article" role="article">
+                <h1 id="card-main-title">
+                    Get <span id="strong-word">insights</span> that help your business grow.
+                </h1>
+                <p id="card-paragraph">
+                    Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.
+                </p>
+                <div id="cards-sticky">
+                    <CardSticky
+                        v-for="item in cardsStickys"
+                        :key="item.id"
+                        :type="item.type"
+                        :value="item.value"
+                    />
+                </div>
+            </article>
+        </section>
         <CardImage
             src-name="image-header-desktop.jpg"
             alt-name="Image de fundo"
@@ -15,12 +28,38 @@
 
 <script>
     import CardImage from './CardImage.vue';
+    import CardSticky from './CardSticky.vue';
 
     export default {
         name: 'CardMain',
         components: {
             CardImage,
+            CardSticky,
         },
+        data() {
+            return {
+                cardsStickys: [],
+            }
+        },
+        created() {
+            this.cardsStickys = [
+                {
+                    id: 1,
+                    value: "10k+",
+                    type: "COMPANIES",
+                },
+                {
+                    id: 2,
+                    value: "314",
+                    type: "TEMPLATES",
+                },
+                {
+                    id: 3,
+                    value: "12M+",
+                    type: "QUERIES",
+                },
+            ]
+        }
     }
 </script>
 
@@ -42,24 +81,58 @@
         background-color: var(--dark-desaturated-blue);
     }
 
-    h1#title-card-main {
-        font-family: 'Lexend Deca';
+    section#section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         
-        color: var(--white);
-
-        font-size: 40px;
-
-        text-align: left;
-    }
-
-    span#strong-word {
-        color: var(--soft-violet)
+        width: 100%;
+        height: 446px;
     }
 
     article#article {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        align-items: center;
+
+        width: 400px;
+        height: 346px;
+    }
+
+    h1#card-main-title, p#card-paragraph {
+        font-family: 'Lexend Deca';
+        
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    h1#card-main-title {
+        
+        color: var(--white);
+
+        font-size: 35px;
+
+        text-align: left;
+
+
+    }
+
+    span#strong-word {
+        color: var(--soft-violet)
+    }
+
+    p#card-paragraph {
+        color: var(--slightly-transparent-white-main-paragraph);
+
+        line-height: 28px;
+
+        margin-bottom: 35px;
+    }
+
+    div#cards-sticky {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
 
         width: 100%;
