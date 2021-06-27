@@ -19,7 +19,7 @@
             </article>
         </section>
         <CardImage
-            src-name="image-header-desktop.jpg"
+            :src-name="currentImage"
             alt-name="Image de fundo"
             background-color="hsl(277, 64%, 61%)"
         />
@@ -27,8 +27,8 @@
 </template>
 
 <script>
-    import CardImage from './CardImage.vue';
     import CardSticky from './CardSticky.vue';
+    import CardImage from './CardImage.vue';
 
     export default {
         name: 'CardMain',
@@ -39,6 +39,7 @@
         data() {
             return {
                 cardsStickys: [],
+                currentImage: "",
             }
         },
         created() {
@@ -59,6 +60,28 @@
                     type: "QUERIES",
                 },
             ]
+
+
+            const mediaQuerieList = matchMedia('(max-width: 1350px)')
+
+            let currentImageRender = "";
+
+            function componentRender(mediaQuerieList) {
+                if(mediaQuerieList.matches) {
+                    currentImageRender = "image-header-mobile.jpg";
+
+                    console.log("Mobile")
+                } else {
+                    currentImageRender = "image-header-desktop.jpg";
+
+                    console.log("Desktop")
+                }
+            }
+
+            componentRender(mediaQuerieList);
+            mediaQuerieList.addEventListener('change', componentRender);
+
+            this.currentImage = currentImageRender;
         }
     }
 </script>
@@ -136,5 +159,11 @@
         align-items: center;
 
         width: 100%;
+    }
+
+    @media screen and (max-width: 1350px) {
+        div#CardMain {
+            width: 645px;
+        }
     }
 </style>

@@ -13,6 +13,8 @@
 </template>
 
 <script>
+    //require(`../assets/${srcName}`)
+
     export default {
         name: 'CardImage',
         components: {
