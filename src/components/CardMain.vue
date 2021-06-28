@@ -79,9 +79,9 @@
             }
 
             componentRender(mediaQuerieList);
+            this.currentImage = currentImageRender;
             mediaQuerieList.addEventListener('change', componentRender);
 
-            this.currentImage = currentImageRender;
         }
     }
 </script>
