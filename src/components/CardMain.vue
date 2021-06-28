@@ -68,10 +68,9 @@
     div#CardMain {
         width: 1000px;
 
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 125px;
 
         border-radius: 10px;
 
@@ -141,7 +140,8 @@
 
     @media screen and (max-width: 1000px) {
         div#CardMain {
-            margin: 50px 0;
+            margin-top: 50px;
+            margin-bottom: 50px;
 
             width: 446px;
 
@@ -173,6 +173,16 @@
 
         div#cards-sticky {
             flex-direction: column;
+        }
+
+        @media screen and (max-width: 472px) {
+            div#CardMain {
+                width: 320px;
+            }
+        
+            article#article {
+                width: calc(100% - 20px);
+            }
         }
     }
 </style>

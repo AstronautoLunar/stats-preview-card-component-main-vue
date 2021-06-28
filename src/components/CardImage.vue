@@ -57,9 +57,19 @@
         align-items: center;
     }
 
+    img#image, div#CardImage {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
     @media screen and (max-width: 1000px) {
         div#CardImage > img#image {
             width: 100%;
+        }
+
+        img#image, div#CardImage {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
     }
 </style>

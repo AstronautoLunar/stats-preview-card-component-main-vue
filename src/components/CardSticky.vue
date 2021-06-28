@@ -61,4 +61,10 @@
             margin: 20px 0;
         }
     }
+
+    @media screen and (max-width: 472px) {
+        div.CardSticky:last-of-type {
+            margin-bottom: 40px;
+        }   
+    }
 </style>
