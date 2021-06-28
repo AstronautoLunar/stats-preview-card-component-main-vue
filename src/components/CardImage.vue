@@ -13,7 +13,6 @@
 </template>
 
 <script>
-    //require(`../assets/${srcName}`)
 
     export default {
         name: 'CardImage',
@@ -56,5 +55,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    @media screen and (max-width: 1000px) {
+        div#CardImage > img#image {
+            width: 100%;
+        }
     }
 </style>

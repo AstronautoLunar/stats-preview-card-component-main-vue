@@ -53,4 +53,12 @@
     span.type {
         color: var(--slightly-transparent-white-stat-headings);
     }
+
+    @media screen and (max-width: 1000px) {
+        div.CardSticky {
+            align-items: center;
+
+            margin: 20px 0;
+        }
+    }
 </style>

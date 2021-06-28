@@ -19,7 +19,7 @@
             </article>
         </section>
         <CardImage
-            :src-name="currentImage"
+            src-name="image-header-desktop.jpg"
             alt-name="Image de fundo"
             background-color="hsl(277, 64%, 61%)"
         />
@@ -60,35 +60,13 @@
                     type: "QUERIES",
                 },
             ]
-
-
-            const mediaQuerieList = matchMedia('(max-width: 1350px)')
-
-            let currentImageRender = "";
-
-            function componentRender(mediaQuerieList) {
-                if(mediaQuerieList.matches) {
-                    currentImageRender = "image-header-mobile.jpg";
-
-                    console.log("Mobile")
-                } else {
-                    currentImageRender = "image-header-desktop.jpg";
-
-                    console.log("Desktop")
-                }
-            }
-
-            componentRender(mediaQuerieList);
-            this.currentImage = currentImageRender;
-            mediaQuerieList.addEventListener('change', componentRender);
-
         }
     }
 </script>
 
 <style scoped>
     div#CardMain {
-        width: calc(100% - 300px);
+        width: 1000px;
 
         position: absolute;
         top: 50%;
@@ -161,9 +139,40 @@
         width: 100%;
     }
 
-    @media screen and (max-width: 1350px) {
+    @media screen and (max-width: 1000px) {
         div#CardMain {
-            width: 645px;
+            margin: 50px 0;
+
+            width: 446px;
+
+            flex-direction: column-reverse;
+        }
+
+        section#section, article#article {
+            height: 100%;
+        }
+
+        article#article {
+            width: calc(100% - 130px);
+        }
+
+
+        h1#card-main-title {
+            margin: 60px 0 20px;
+        }
+
+        h1#card-main-title, p#card-paragraph {
+            text-align: center;
+        }
+
+        p#card-paragraph {
+            margin: 20px 0;
+
+            width: calc(100% - 20px)
+        }
+
+        div#cards-sticky {
+            flex-direction: column;
         }
     }
 </style>
